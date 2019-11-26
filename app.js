@@ -27,6 +27,6 @@ app.get('/note.html', function(req,res){
 
 })
 
-var server = app.listen(7757, function(){
+var server = app.listen(process.env.PORT, function(){
     console.log('Server is up and running ' + server.address().port);
 })
