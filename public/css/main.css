@@ -27,11 +27,17 @@ body{
 }
 
 .rubrik{
-    color: lightgrey;   
+    color: lightgrey;
+    margin-left: 3%;  
+    font-size: 20px; 
+    font-weight: bold;
 }
 
 .text{
     color: lightgrey;
+    margin-left: 3%;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .container.col-sm-6.col-sm-push-3{
@@ -89,8 +95,23 @@ body{
     font-size: 20px;
     margin-top: 25px;
     color: lightgray;
+    font-weight: bold;
  }
 
  .btn-primary {
-     padding: 12px;
+    padding: 12px;
  }
+
+ .btn-pos{
+    display: flex; 
+    justify-content: center;
+ }
+
+ textarea.form-control {
+    width: 96%;
+    margin-left: 2%;
+}
+
+input{
+    margin: 3%;
+}
