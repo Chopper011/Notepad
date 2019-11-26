@@ -3,6 +3,7 @@ var app = express();
 
 var bodyParser = require('body-parser');
 var urlendcoderParser = bodyParser.urlencoded();
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', function(req, res){
@@ -16,7 +17,7 @@ app.post('/processpost', urlendcoderParser, function(req, res){
    }
    console.log(data);
    res.end(JSON.stringify(data)) 
-})
+}) 
 
 var server = app.listen(7757, function(){
     console.log('Server is up and running ' + server.address().port);
