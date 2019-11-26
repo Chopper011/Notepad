@@ -1,0 +1,25 @@
+{
+  "name": "notepad",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node": "^13.1.0",
+    "nodemon": "^2.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chopper011/Notepad.git"
+  },
+  "author": "Game of Code",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chopper011/Notepad/issues"
+  },
+  "homepage": "https://github.com/Chopper011/Notepad#readme"
+}
