@@ -3,17 +3,31 @@
 //connection
 
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://LinneaMid:abQZg3BjOq1KqG8B@test-si7mo.azure.mongodb.net/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("sample_airbnb").collection("listingsAndReviews");
-  // perform actions on the collection object
+const ObjectId = require("mongodb").ObjectID;
 
-  
-  client.close();
+const CONNECTION_URL = "mongodb+srv://LinneaMid:abQZg3BjOq1KqG8B@test-si7mo.azure.mongodb.net/test?retryWrites=true&w=majority";
+const DATABASE_NAME = "sample_airbnb";   
+
+var database, collection;
+
+MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
+    if(error) {
+        throw error;
+    }
+    database = client.db(DATABASE_NAME);
+    collection = database.collection("listingsAndReviews");
+    console.log("Connected to `" + DATABASE_NAME + "`!");
 });
 
-
 //läs in i db
+
+app.post("/note", (req, res) => {
+    collection.insert(req.body, (error, result) => {
+        if(error) {
+            return res.status(500).send(error);
+        }
+        res.send(result.result);
+    });
+});
 
 //läs av collection och skriv ut note på sidan
