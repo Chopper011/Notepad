@@ -31,3 +31,12 @@ app.post("/note", (req, res) => {
 });
 
 //läs av collection och skriv ut note på sidan
+
+app.get("/note", (req, res) => {
+    collection.find({}).toArray((error, result) => {
+        if(error) {
+            return res.status(500).send(error);
+        }
+        res.send(result);
+    });
+});
