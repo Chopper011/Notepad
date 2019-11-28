@@ -91,7 +91,7 @@ body{
     cursor: pointer;
   }
 
- .notes {
+ #notes {
     text-align: center;
     font-size: 20px;
     margin-top: 25px;

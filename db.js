@@ -37,6 +37,8 @@ app.post("/note", (req, res) => {
 //Button function (add here)
 
 function myFunction() {
+
+    document.getElmentById("notes").innerHTML = "Notes"; //fix or take out?
    
     app.get("/note", (req, res) => {
         collection.find({}).toArray((error, result) => {
