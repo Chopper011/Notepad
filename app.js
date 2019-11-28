@@ -10,8 +10,13 @@ app.use(express.static("Public"));
 app.use(express.static("Public/html"));
 
 app.get('/', function(req, res){
-    res.sendFile(__dirname + '/public/html/index.html');
+    res.sendFile(__dirname + '/html/index.html');
 })
+app.get(__dirname + '/index.html', function(req, res){
+    res.sendfile(__dirname + "/html/index.html");
+})
+
+
 
 app.post('/note', urlendcoderParser, function(req, res){
    var data = {
@@ -23,9 +28,8 @@ app.post('/note', urlendcoderParser, function(req, res){
    res.end(JSON.stringify(data));
 }) 
 app.get('/note.html', function(req,res){
-    res.sendFile(__dirname + '/public/html/note.html');
+    res.sendFile(__dirname + '/html/note.html');
     dataString;
-
 })
 
 var server = app.listen(process.env.PORT, function(){
