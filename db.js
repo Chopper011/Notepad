@@ -21,7 +21,7 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) =
 
 //läs in i db
 
-app.post("/note", (req, res) => {
+app.post("/note", (req, res) => { 
     collection.insert(req.body, (error, result) => {
         if(error) {
             return res.status(500).send(error);

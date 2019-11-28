@@ -6,7 +6,10 @@ var urlendcoderParser = bodyParser.urlencoded();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static("Public"));
+app.use(express.static("public"));
+app.use(express.static("public/html"));
+app.use(express.static("public/css"));
+
 
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/public/html/index.html');
@@ -26,6 +29,6 @@ app.get('/note.html', function(req,res){
     dataString;
 })
 
-var server = app.listen(7757, function(){
+var server = app.listen(process.env.PORT, function(){
     console.log('Server is up and running ' + server.address().port);
 })
