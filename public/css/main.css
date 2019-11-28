@@ -116,6 +116,8 @@ body{
 
 input{
     margin: 3%;
+    border-radius: 7px;    
+
 }
 
 .nav-link{
