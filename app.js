@@ -25,9 +25,8 @@ app.post('/note', urlendcoderParser, function(req, res){
 app.get('/note.html', function(req,res){
     res.sendFile(__dirname + '/public/html/note.html');
     dataString;
-
 })
 
-var server = app.listen(7757, function(){
+var server = app.listen(process.env.PORT, function(){
     console.log('Server is up and running ' + server.address().port);
 })
