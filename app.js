@@ -12,10 +12,6 @@ app.use(express.static("Public/html"));
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/html/index.html');
 })
-app.get(__dirname + '/index.html', function(req, res){
-    res.sendfile(__dirname + "/html/index.html");
-})
-
 
 
 app.post('/note', urlendcoderParser, function(req, res){
