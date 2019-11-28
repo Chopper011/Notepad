@@ -8,6 +8,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static("Public"));
 app.use(express.static("Public/html"));
+app.use(express.static("public/css"));
+
 
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/public/html/index.html');
