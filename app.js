@@ -16,6 +16,12 @@ app.get('/', function(req, res){
 app.get(__dirname + '/index.html', function(req, res){
     res.sendfile(__dirname + "public/html/index.html");
 })
+app.get(__dirname + '/note.html', function(req, res){
+    res.sendfile(__dirname + "public/html/note.html");
+})
+app.get(__dirname + '/OmOss.html', function(req, res){
+    res.sendfile(__dirname + "public/html/OmOss.html");
+})
 
 app.post('/note', urlendcoderParser, function(req, res){
    var data = {
