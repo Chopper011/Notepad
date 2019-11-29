@@ -8,11 +8,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
 app.use(express.static("public/html"));
-app.use(express.static("public/css"));
 
 
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/public/html/index.html');
+})
+app.get(__dirname + '/index.html', function(req, res){
+    res.sendfile(__dirname + "public/html/index.html");
 })
 
 app.post('/note', urlendcoderParser, function(req, res){
