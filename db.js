@@ -10,10 +10,9 @@ MongoClient.connect(url, {useUnifiedTopology:true}, function(err, db) {
         if (err) throw err;
         console.log("Collection created");
     });
-    var titlename = req.body.Rubrik;
-    var democontent = req.body.Text;
+  
 
-    var myobj = { name: req.body.Rubrik, note: req.body.Text };
+    var myobj = { name:"sss", note:"dfd" };
     dbo.collection("Note").insertOne(myobj, function(err, res) {
         if (err) throw err;
         console.log("1 document inserted");
