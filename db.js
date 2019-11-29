@@ -1,45 +1,31 @@
-//kod och connection för db.
-
-//connection
 
 const MongoClient = require('mongodb').MongoClient;
-const ObjectId = require("mongodb").ObjectID;
+var url = "mongodb+srv://Lin: iqoIN5sqmJx6o2pt@note-3zsub.azure.mongodb.net/test?retryWrites=true&w=majority";
+const client = new MongoClient(url, { useNewUrlParser: true });
+MongoClient.connect(url, {useUnifiedTopology:true}, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db('Notebd');
+    console.log("Connection created");
+    dbo.createCollection("Note", function(err, res) {
+        if (err) throw err;
+        console.log("Collection created");
+    });
+    var titlename = req.body.Rubrik;
+    var democontent = req.body.Text;
 
-const CONNECTION_URL = "mongodb+srv://LinneaMid:abQZg3BjOq1KqG8B@test-si7mo.azure.mongodb.net/test?retryWrites=true&w=majority";
-const DATABASE_NAME = "sample_airbnb";   
-
-var database, collection;
-
-MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
-    if(error) {
-        throw error;
-    }
-    database = client.db(DATABASE_NAME);
-    collection = database.collection("listingsAndReviews");
-    console.log("Connected to `" + DATABASE_NAME + "`!");
-});
-
-//läs in i db
-
-app.post("/note", (req, res) => { 
-    collection.insert(req.body, (error, result) => {
-        if(error) {
-            return res.status(500).send(error);
-        }
-        res.send(result.result);
+    var myobj = { name: req.body.Rubrik, note: req.body.Text };
+    dbo.collection("Note").insertOne(myobj, function(err, res) {
+        if (err) throw err;
+        console.log("1 document inserted");
+    });
+    dbo.collection("Note").find({}, { projection: { _id: 0 }}).toArray( function(err, res) {
+        if (err) throw err;
+        console.log(res);
+    });
+    var query = { name: "Eyooo1"};
+    dbo.collection("Note").find(query).toArray( function(err, res) {
+        if (err) throw err;
+        console.log(res);
+        db.close();
     });
 });
-
-//läs av collection och skriv ut note på sidan
-
-// /getall?
-
-//Button function (add here)
-
-function myFunction() {
-
-    document.getElmentById("note").innerHTML = "Notes"; //fix or take out?
-   
-  
-
-  }
