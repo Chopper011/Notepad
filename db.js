@@ -38,7 +38,7 @@ app.post("/note", (req, res) => {
 
 function myFunction() {
 
-    document.getElmentById("notes").innerHTML = "Notes"; //fix or take out?
+    document.getElmentById("note").innerHTML = "Notes"; //fix or take out?
    
     app.get("/note", (req, res) => {
         collection.find({}).toArray((error, result) => {
